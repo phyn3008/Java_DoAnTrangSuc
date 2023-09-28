@@ -1,0 +1,453 @@
+/* GLOBAL */
+html,body{
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* HEADER */
+/* header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
+.header__top{
+    font-size: 14px;
+}
+.header__top a{
+    text-decoration: none;
+    color: black;
+    /* transition: all 0.5s; */
+}
+.listtd{
+    font-weight: 100;
+    font-size: 14px;
+}
+.listtd1{
+    float: left;  
+}
+.listtd2{
+    float: right;
+}
+.header__left{
+    padding: 0px;
+}
+.header__right{
+    padding-left: 3%;
+    padding-right: 0px;
+}
+.header__right a{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 0.25rem;
+}
+.logobrand{
+    padding: 0px;
+    font-weight:bold;
+}
+
+
+a.nav-link{
+    margin: 0px 5px 0px 5px;
+}
+
+a.nav-link:hover{
+    background-color: black;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    color: white;
+}
+#text-search{
+    width: 120%;
+    border: 1px black solid;
+}
+
+
+
+/* NEWS */
+
+.heading h2{
+    text-align: center;
+    font-weight: bold;
+    margin: 50px 0px;
+}
+.news__content {
+    background-color: #F7F7F7;
+    padding: 50px;
+}
+.news__content img{
+    border: 2px solid #dedede;
+}
+
+.news__content  h3{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.news__content a{
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+
+.news__content a:hover{
+    color: blue;
+}
+
+.news__content h4{
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: blue;
+    margin: 1rem 0;
+}
+.news__content p{
+    color: black;
+    margin-top: 1rem;
+    line-height: 1.8rem;
+    font-size: 20px;
+}
+
+.news__content .row:last-child{
+    margin-top: 5rem;
+}
+/* CAROUSEL */
+.carousel-item img{
+    width: 100%;
+    height: 500px;
+}
+#dthoai{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#dthoai a{
+    color: #AE1427;
+    font-weight: bold;
+}
+#dthoai a:hover{
+    color: black;
+    font-weight: bold;
+}
+.thongsokythuat{
+    margin-top: 20px;
+    min-height: 300px;
+    background-color: white;
+    border: 1px black solid;
+    padding: 5px;
+}
+.thongsokythuat h3{
+    margin-bottom: 20px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+.thongtin .giatienban{
+    float: left;
+    font-size: 30px;
+    color: red;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.thongtin .giatiengoc{
+    color: #888888;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+.thongtin .soghi{
+    margin-top: 20px;
+    width: 45%;
+    height: 80px;
+    padding-left: 20% ;
+    padding-top: 10px;
+    border: 1px black solid;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.thongtin input{
+    padding: 10px;
+}
+.soghi #tenghi{
+   font-weight: bold;
+}
+.soghi #gia{
+    /* margin-top: 5px; */
+    font-size: 20px;
+    margin-left: -36px;
+}
+.mausac{
+    margin-top: 30px;
+}
+.bangmau{
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 40px;
+    width: 50%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    margin-top: 20px;
+}
+.bm{
+    border-radius: 50%; height: 25px;width: 10%; margin: 5px;
+    margin-left: 10px;
+}
+.khuyenmai{
+    margin-top: 10px;
+    padding-left: 10px;
+}
+#muangay{
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color:#AE1427;
+}
+.tragop{
+    margin-top: 5px;
+    width: 49.5%;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color:#0664F9;
+}
+#dgiansx{
+    text-align: center;
+    margin-top: 20px;
+}
+#dgiansx h5{
+    font-weight: bold;
+}
+#dgiansx p{
+    text-align: left;
+    font-size: 17px;
+}
+#dgiansx img{
+    width: 100%;
+}
+
+/* Đánh giá */
+.danhgia{
+    background-color: #F7F7F7;
+    padding: 50px;
+    margin-top: 50px;
+    min-height: 50px;
+}
+.danhgia h3{
+    font-weight: bold;
+    text-align: center;
+}
+.danhgia input{
+    width: 45%;
+    float: left;
+    min-height: 50px;
+    margin-right: 150px;
+}
+.guidgia{
+    line-height: 50px;
+}
+.guidgia label{
+    margin-right: 30px;
+}
+.guidgia button{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #AE1427;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.cacdanhgia{
+    margin-top: 50px;
+}
+.tenkh h6{
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+}
+div.stars {
+    width: 100%;
+    display: flex;
+    margin-left: -10px;
+}
+   
+input.star { display: none; }
+   
+label.star {
+float: right;
+padding: 5px;
+font-size: 25px;
+color: #444;
+transition: all .2s;
+}
+   
+input.star:checked ~ label.star:before {
+content: '\f005';
+color: #FD4;
+transition: all .25s;
+}
+   
+input.star-5:checked ~ label.star:before {
+color: #FE7;
+text-shadow: 0 0 20px #952;
+}
+   
+input.star-1:checked ~ label.star:before { color: #F62; }
+   
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+   
+label.star:before {
+content: '\f006';
+font-family: FontAwesome;
+}
+.classification {
+    position: relative;
+    width: 91px;
+    height: 17px;
+  }
+  .classification .cover {
+    position: absolute;
+    background: transparent url(img/stars.png) top left no-repeat;
+    top: 0px;
+    left: 0px;
+    width: 91px;
+    height: 17px;
+    z-index: 101;
+  }
+  .classification .progress {
+    position: absolute;
+    background: transparent url(img/stars_full.png) top left no-repeat;
+    top: 0px;
+    left: 0px;
+    height: 17px;
+    z-index: 102;
+  }
+/* FOOTER */
+footer{
+    margin-top: 30px;
+    background-color: white;
+}
+
+.footer__top h3{
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.footer__top p{
+    color: #8b8b96;
+    font-size: 15px;
+    line-height: 2em;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.footer__link, .footer__contact{
+    margin-bottom: 1rem;
+}
+
+.footer__link i{
+    color: black;
+    margin-right: 1rem;
+}
+
+.footer__link a,.footer__contact a{
+    color: #8b8b96;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+.footer__link a:hover,.footer__contact a:hover{
+    color: black;
+}
+.footer__contact i{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #4b4b50;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    margin-right:  1rem;
+}
+.footer__form{
+    margin-top: 3rem;
+}
+.footer__form label{
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.footer__form input{
+    padding: 14px;
+    border-radius: 0;
+    border: none;
+    letter-spacing: 1px;
+    color: #888888;
+    height: auto;
+}
+
+.footer__form button{
+    background-color: black;
+    padding: 12px 35px;
+    letter-spacing: 1px;
+    border-radius: 0;
+    color: white;
+    outline: none;
+    transition: all 0.5s;
+}
+.footer__form button:hover{
+    background-color: #ec1955;
+    color: white;
+}
+
+
+.footer__bottom{
+    background-color: #0f0f10;
+    text-align: center;
+    padding: 1rem 0;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.footer__bottom a{
+    text-decoration: none;
+    color: #ff4f81;
+    transition: all 0.5s;
+}
+
+.footer__bottom a:hover{
+    color: white;
+}
