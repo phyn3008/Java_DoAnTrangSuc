@@ -9,6 +9,7 @@
 <%@include file="./khachhang/nav.jsp" %>
 
 <jsp:useBean id="dao" class="dao.HinhAnhDao"></jsp:useBean>
+<jsp:useBean id="daokc" class="dao.KichCoDao"></jsp:useBean>
     <section class="banner1">
         <img src="assets/images/Banner/banner_Lac_3.jpg" alt="banner1">
     </section>
@@ -28,9 +29,9 @@
                         <div class="ms">${ts.maCL.tenCL}</div>
                     </div>
                     <div class="gbmain">
-                        <div class="GB m5">36</div>
-                        <div class="GB m5">37</div>
-                        <div class="GB m5">38</div>
+                    <c:forEach var="kc" items="${daokc.getAllConSL(ts.maTS)}">
+                        <div class="GB m5">${kc.getKichCo().getTenKC()}</div> 
+                    </c:forEach>
                     </div>
                     <div class="giaban m5">${ts.donGiaSP} <u>đ</u></div>
                     <!--<div class="notegb">Chiếu khấu 5.000.000 <u>đ</u> (giá gốc <del>${ts.donGiaSP} <u>đ</u></del>)</div>-->

@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "HinhAnh.findAll", query = "SELECT h FROM HinhAnh h"),
     @NamedQuery(name = "HinhAnh.findByMaHinh", query = "SELECT h FROM HinhAnh h WHERE h.maHinh = :maHinh"),
-    @NamedQuery(name = "HinhAnh.findByTenHinh", query = "SELECT h FROM HinhAnh h WHERE h.tenHinh = :tenHinh")})
+    @NamedQuery(name = "HinhAnh.findByTenHinh", query = "SELECT h FROM HinhAnh h WHERE h.tenHinh = :tenHinh"),
+    @NamedQuery(name = "HinhAnh.findByMaTS", query = "SELECT h FROM HinhAnh h WHERE h.maTS.maTS = :maTS")})
 public class HinhAnh implements Serializable {
 
     private static final long serialVersionUID = 1L;

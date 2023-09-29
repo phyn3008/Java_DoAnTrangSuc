@@ -5,6 +5,7 @@
  */
 package dao;
 
+import dto.CTTrangSuc;
 import dto.HinhAnh;
 import dto.TrangSuc;
 import java.util.List;
@@ -21,10 +22,11 @@ public class HinhAnhDao {
     public EntityManagerFactory emf= Persistence.createEntityManagerFactory("DoAnJPATrangSuc");
     
     //phuong thuc lay tat ca danh ba
-    public List<TrangSuc> getAll(){
+    public List<HinhAnh> getAll(int maTS){
         EntityManager em= emf.createEntityManager();
         // Truy vấn theo cái tên namequery trong class sinh ra
-        Query q= em.createNamedQuery("TrangSuc.findAll");
+        Query q= em.createNamedQuery("HinhAnh.findByMaTS");
+        q.setParameter("maTS",maTS);
        return q.getResultList();
     }  
     
@@ -39,8 +41,17 @@ public class HinhAnhDao {
     
     public static void main(String[] args) {
         HinhAnhDao dao= new HinhAnhDao();
-        String ha =dao.getTop1(1).getTenHinh();
-        System.out.println(ha);
+//        String ha =dao.getTop1(1).getTenHinh();
+//        System.out.println(ha);
+        System.out.println("Đọc danh sách tất cả kích cỡ của trang sức ");
+        for(int i=0;i<dao.getAll(1).size();i++){
+            HinhAnh ha= dao.getAll(1).get(i);
+             System.out.println(ha.getTenHinh());
+        }
+//        for(HinhAnh ha:dao.getAll(1)){
+//            System.out.println(ha.getTenHinh());
+//        }
+//        System.out.println("So hinh co trong san pham: " +dao.getAll(1).size());
     
 }
 }

@@ -4,9 +4,15 @@
     Author     : Admin
 --%>
 
+<%@page import="dto.HinhAnh"%>
+<%@page import="dto.TrangSuc"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="./khachhang/Header.jsp" %>
 <%@include file="./khachhang/nav.jsp" %>
+
+<jsp:useBean id="dao" class="dao.HinhAnhDao"></jsp:useBean>
+<jsp:useBean id="daokc" class="dao.KichCoDao"></jsp:useBean>
+
 <section class="thongtin">
     <div class="heading">
         <h2>${chitietts.tenTS}</h2>
@@ -17,20 +23,30 @@
                 <section class="cyberCarousel">
                     <div id="carouselCyber" class="carousel slide">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselCyber" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselCyber" data-slide-to="1"></li>
-                            <li data-target="#carouselCyber" data-slide-to="2"></li>
+<!--                            <li data-target="#carouselCyber" data-slide-to="0" class="active"></li>-->
+                            <%
+                                Object ctts= request.getAttribute("chitietts");
+                                TrangSuc ts= (TrangSuc)ctts;
+                                for(int i=0;i<dao.getAll(ts.getMaTS()).size();i++){
+                            %>
+                            <li data-target="#carouselCyber" data-slide-to="<%=i%>" class=<%= i==0?"active":"" %> ></li>
+                            <%
+                                }
+                            %>    
+                                
+                            
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./img/hinh1.png" class="d-block w-100" alt="hinh1">
+                            <%
+                                for(int i=0;i<dao.getAll(ts.getMaTS()).size();i++){
+                                    HinhAnh ha= dao.getAll(ts.getMaTS()).get(i);
+                            %>                     
+                            <div class=<%= i==0?"carousel-item active":"carousel-item" %> >
+                                <img src="${ddha}<%=ha.getTenHinh()%>" class="d-block w-100" alt="hinh1">
                             </div>
-                            <div class="carousel-item">
-                                <img src="./img/hinh2.png" class="d-block w-100" alt="hinh2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="./img/hinh3.png" class="d-block w-100" alt="hinh3">
-                            </div>
+                            <%
+                                }
+                            %>  
                         </div>
                         <a class="carousel-control-prev" href="#carouselCyber" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -99,7 +115,7 @@
             </div>
             <div class="col-6">
                 <div>
-                    <div class="giatienban">20.990.400<u>đ</u></div>
+                    <div class="giatienban">${chitietts.donGiaSP}<u>đ</u></div>
                     <div class="giatiengoc"><del>${chitietts.donGiaSP}<u>đ</u></del></div>
                 </div>
                 <!--start KC-->

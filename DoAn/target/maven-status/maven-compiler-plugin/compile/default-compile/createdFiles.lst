@@ -1,6 +1,7 @@
 dto\HinhAnh_.class
 dao\userDao.class
 dao\HinhAnhDao.class
+dao\KichCoDao.class
 dto\CTTrangSucPK_.class
 dto\KichCo.class
 dto\Users_.class
