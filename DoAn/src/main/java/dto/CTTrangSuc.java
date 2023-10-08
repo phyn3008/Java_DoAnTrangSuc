@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -22,7 +21,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "CT_TrangSuc")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "CTTrangSuc.findAll", query = "SELECT c FROM CTTrangSuc c"),
     @NamedQuery(name = "CTTrangSuc.findByMaTS", query = "SELECT c FROM CTTrangSuc c WHERE c.cTTrangSucPK.maTS = :maTS"),

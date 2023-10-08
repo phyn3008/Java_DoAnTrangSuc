@@ -19,7 +19,7 @@ public class userDao
     public EntityManagerFactory emf= Persistence.createEntityManagerFactory("DoAnJPATrangSuc");
         public Users find(String tendn){
         EntityManager em= emf.createEntityManager();
-       return em.find(Users.class, tendn);
+        return em.find(Users.class, tendn);
     }  
     
 }

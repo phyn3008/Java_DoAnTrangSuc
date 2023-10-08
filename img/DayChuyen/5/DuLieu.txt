@@ -38,3 +38,14 @@ Thông tin:
 Disney|PNJ xin giới thiệu đến bạn phiên bản trang sức đặc sắc với một chế tác từ chất liệu vàng 14K, điểm xuyến bởi các chi tiết đậm chất "Disney" và đầy tính sáng tạo. Sự sắp xếp các chi tiết trên chiếc dây cổ tựa như những nốt nhạc tạo nên bản hợp xướng êm dịu và bay bổng.
 
 Đặc biệt hơn, chiếc dây cổ sẽ trở nên ý nghĩa hơn khi trở thành món quà ghi dấu yêu thương vào những dịp quan trọng. Đây chắc chắn sẽ là thứ giúp bạn gắn kết những khoảnh khắc đáng nhớ với mình hoặc người thương.
+
+
+
+
+Thực hiện thiết kế giao diện, database
+Trang home: Lấy 4 sản phẩm có ngày ra mắt mới nhất; Lấy 4 sản phẩm theo từng thể loại
+Trang có chứa các sản phẩm tùy thuộc vào loại: Lấy tất cả sản phẩm của mỗi thể loại trên thanh nav.
+Lấy kích cỡ của sản phẩm khi còn số lượng, không còn số lượng ở kích cỡ đó không hiện ra. Chỉ lấy một hình đại diện cho sản phẩm đó.
+
+ 
+Trang chi tiết sản phẩm

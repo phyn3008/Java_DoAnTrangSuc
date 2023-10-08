@@ -10,7 +10,7 @@
             <div class="header__left col-8">
                 <nav class="navbar navbar-expand-lg ">
                     <div class="container-fluid col-3 logo">
-                        <a class="navbar-brand logobrand" href="#">LUXURY DIAMOND</a>
+                        <a class="navbar-brand logobrand" href="HomeServlet">LUXURY DIAMOND</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
                             aria-expanded="false" aria-label="Toggle navigation">

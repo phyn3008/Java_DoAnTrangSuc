@@ -5,6 +5,7 @@
  */
 package dto;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -25,8 +26,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +33,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "TrangSuc")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TrangSuc.findAll", query = "SELECT t FROM TrangSuc t"),
     @NamedQuery(name = "TrangSuc.findByMaTS", query = "SELECT t FROM TrangSuc t WHERE t.maTS = :maTS"),
@@ -103,15 +101,40 @@ public class TrangSuc implements Serializable {
     @Column(name = "NgayRaMat")
     @Temporal(TemporalType.DATE)
     private Date ngayRaMat;
+    @Expose
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trangSuc")
     private List<CTTrangSuc> cTTrangSucList;
     @JoinColumn(name = "MaCL", referencedColumnName = "MaCL")
     @ManyToOne
+    @Expose
     private ChatLieu maCL;
+
+    public TrangSuc(Integer maTS, String tenTS, Integer donGiaSP, Double trongLuong, Double hamLuongChatLieu, String loaiDaChinh, String loaiDaPhu, String mauDa, Integer soVienDaChinh, Integer soVienDaPhu, String boSuuTap, String thuongHieu, boolean gioiTinh, String thongTinTS, String ghiChuTS, Date ngayRaMat, ChatLieu maCL, LoaiTS maLoaiTS) {
+        this.maTS = maTS;
+        this.tenTS = tenTS;
+        this.donGiaSP = donGiaSP;
+        this.trongLuong = trongLuong;
+        this.hamLuongChatLieu = hamLuongChatLieu;
+        this.loaiDaChinh = loaiDaChinh;
+        this.loaiDaPhu = loaiDaPhu;
+        this.mauDa = mauDa;
+        this.soVienDaChinh = soVienDaChinh;
+        this.soVienDaPhu = soVienDaPhu;
+        this.boSuuTap = boSuuTap;
+        this.thuongHieu = thuongHieu;
+        this.gioiTinh = gioiTinh;
+        this.thongTinTS = thongTinTS;
+        this.ghiChuTS = ghiChuTS;
+        this.ngayRaMat = ngayRaMat;
+        this.maCL = maCL;
+        this.maLoaiTS = maLoaiTS;
+    }
     @JoinColumn(name = "MaLoaiTS", referencedColumnName = "MaLoaiTS")
     @ManyToOne(optional = false)
+    @Expose
     private LoaiTS maLoaiTS;
     @OneToMany(mappedBy = "maTS")
+    @Expose
     private List<HinhAnh> hinhAnhList;
 
     public TrangSuc() {
@@ -254,7 +277,6 @@ public class TrangSuc implements Serializable {
         this.ngayRaMat = ngayRaMat;
     }
 
-    @XmlTransient
     public List<CTTrangSuc> getCTTrangSucList() {
         return cTTrangSucList;
     }
@@ -279,7 +301,6 @@ public class TrangSuc implements Serializable {
         this.maLoaiTS = maLoaiTS;
     }
 
-    @XmlTransient
     public List<HinhAnh> getHinhAnhList() {
         return hinhAnhList;
     }
@@ -312,5 +333,5 @@ public class TrangSuc implements Serializable {
     public String toString() {
         return "dto.TrangSuc[ maTS=" + maTS + " ]";
     }
-    
+
 }

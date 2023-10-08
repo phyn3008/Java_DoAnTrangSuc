@@ -6,7 +6,10 @@
 package dao;
 
 import dto.TrangSuc;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,7 +24,6 @@ public class TrangSucDao {
     //phuong thuc lay tat ca danh ba
     public List<TrangSuc> getAll(){
         EntityManager em= emf.createEntityManager();
-        // Truy vấn theo cái tên namequery trong class sinh ra
         Query q= em.createNamedQuery("TrangSuc.findAll");
        return q.getResultList();
     }  
@@ -29,20 +31,27 @@ public class TrangSucDao {
     //
     public List<TrangSuc> search(String name){
         EntityManager em= emf.createEntityManager();
-        // Truy vấn theo cái query tự viết
         Query q= em.createQuery("select n from TrangSuc n where n.tenTS like :tenTS");
         q.setParameter("tenTS","%"  + name + "%");
        return q.getResultList();
     }  
-    
-    public List<TrangSuc> layngaunhien(int limit){
+    // Lấy top 4 theo ngay ra mat
+    public List<TrangSuc> top4spngaygannhat(){
         EntityManager em= emf.createEntityManager();
         // Truy vấn theo cái query tự viết
-        Query q= em.createQuery("select top :limit n from TrangSuc n order by NEWID()");
-        q.setParameter("limit",limit);
+       Query q= em.createNativeQuery("select TOP 4 * from TrangSuc order by NgayRaMat desc",TrangSuc.class);
        return q.getResultList();
     } 
     
+    
+    // Lấy top 4 mỗi sp
+     public List<TrangSuc> top4sp(int maloaiTS){
+        EntityManager em= emf.createEntityManager();
+        // Truy vấn theo cái query tự viết
+       Query q= em.createNativeQuery("select TOP 4 * from TrangSuc where maLoaiTS=?",TrangSuc.class);
+       q.setParameter(1,maloaiTS);
+       return q.getResultList();
+    } 
     //Lấy tất cả có mã loại
     public List<TrangSuc> getAllofMaLoaiTS(int maloaiTS){
         EntityManager em= emf.createEntityManager();
@@ -95,7 +104,6 @@ public class TrangSucDao {
             ts.setSoVienDaPhu(tss.getSoVienDaPhu());
             ts.setBoSuuTap(tss.getBoSuuTap());
             ts.setThuongHieu(tss.getThuongHieu());
-            
             ts.setGioiTinh(tss.getGioiTinh());
             ts.setMaCL(tss.getMaCL());
             ts.setThongTinTS(tss.getThongTinTS());
@@ -106,6 +114,25 @@ public class TrangSucDao {
         return true;
     }
     
+    // hàm tính toán số trang
+       public int countOfPage(){
+            int pageSize=4; // Tự viết ngoài sửa đổi chỗ này
+            EntityManager em= emf.createEntityManager();
+            Query q= em.createQuery("select count(ts.maTS) from TrangSuc ts");
+            int count=Integer.parseInt(q.getSingleResult().toString());
+//            int pages=(int)Math.ceil((double)count/pageSize);
+            int pages=count/pageSize + (count%pageSize>0?1:0);
+            return pages;
+       }
+    public List<TrangSuc> getofPage(int page){
+       int pageSize=4; // Tự viết ngoài sửa đổi chỗ này
+        EntityManager em= emf.createEntityManager();
+        // Truy vấn theo cái tên namequery trong class sinh ra
+        Query q= em.createNativeQuery("select * from TrangSuc ORDER BY MaTS OFFSET ? ROWS FETCH NEXT ? ROWS ONLY",TrangSuc.class);
+        q.setParameter(1, (page-1)*pageSize);
+        q.setParameter(2, pageSize);
+        return q.getResultList();
+    }  
     public static void main(String[] args) {
         TrangSucDao dao= new TrangSucDao();
 //        System.out.println("Đọc danh sách tất cả trang sức");
@@ -139,9 +166,24 @@ public class TrangSucDao {
 
 
             // Lấy theo ma loai
-            System.out.println("Đọc danh sách tất cả trang sức co ma loai???");
-            for(TrangSuc ts:dao.getAllofMaLoaiTS(1)){
-                System.out.println(ts.getTenTS()+ "-" + ts.getThuongHieu());
-            }
+//            System.out.println("Đọc danh sách tất cả trang sức co ma loai???");
+////            DecimalFormat frm = new DecimalFormat("#,##");
+//            Locale localeVN = new Locale("vi", "VN");
+//            NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+////            String str1 = currencyVN.format(vnd);
+////            int dongiaSP = Integer.parseInt(frm.format(ts.getDonGiaSP()));
+//            for(TrangSuc ts:dao.getAllofMaLoaiTS(1)){
+//                String str1 = currencyVN.format(ts.getDonGiaSP());
+//                System.out.println("Gía bán: " + str1);
+//            }
+
+            // Lấy top 4 sp ngay ra mat gan nhat
+//            for(TrangSuc ts:dao.top4spngaygannhat()){
+//            System.out.println(ts.getTenTS()+ "-" + ts.getNgayRaMat());
+
+            //Lấy top 4 sp ngay ra mat gan nhat
+            for(TrangSuc ts:dao.top4sp(1)){
+            System.out.println(ts.getTenTS()+ "-" + ts.getMaLoaiTS().getTenLoaiTS());
+        }
     }
 }

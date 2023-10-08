@@ -19,8 +19,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "LoaiTS")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "LoaiTS.findAll", query = "SELECT l FROM LoaiTS l"),
     @NamedQuery(name = "LoaiTS.findByMaLoaiTS", query = "SELECT l FROM LoaiTS l WHERE l.maLoaiTS = :maLoaiTS"),
@@ -70,7 +67,6 @@ public class LoaiTS implements Serializable {
         this.tenLoaiTS = tenLoaiTS;
     }
 
-    @XmlTransient
     public List<TrangSuc> getTrangSucList() {
         return trangSucList;
     }

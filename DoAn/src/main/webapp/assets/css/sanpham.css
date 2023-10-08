@@ -423,3 +423,17 @@ footer{
 .footer__bottom a:hover{
     color: white;
 }
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #e74c3c;
+  transition: all .25s;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+label.star:before {
+  content: '\f005';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 200;
+}

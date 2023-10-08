@@ -3,7 +3,8 @@
     Created on : Sep 24, 2023, 7:07:27 PM
     Author     : Admin
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="./khachhang/Header.jsp" %>
 <%@include file="./khachhang/nav.jsp" %>
@@ -33,7 +34,10 @@
                         <div class="GB m5">37</div>
                         <div class="GB m5">38</div>
                     </div>
-                    <div class="giaban m5">${ts.donGiaSP} <u>đ</u></div>
+                    <div class="giaban m5">
+                       <f:formatNumber var="dongiaSP" value="${ts.donGiaSP}" pattern="#,##0"></f:formatNumber>
+                        ${dongiaSP}<u> đ</u>
+                    </div>
                     <!--<div class="notegb">Chiếu khấu 5.000.000 <u>đ</u> (giá gốc <del>${ts.donGiaSP} <u>đ</u></del>)</div>-->
                     <button>Mua ngay</button>
                     </a>

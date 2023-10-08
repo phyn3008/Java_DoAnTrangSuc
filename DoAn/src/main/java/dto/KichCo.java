@@ -19,8 +19,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "KichCo")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "KichCo.findAll", query = "SELECT k FROM KichCo k"),
     @NamedQuery(name = "KichCo.findByMaKC", query = "SELECT k FROM KichCo k WHERE k.maKC = :maKC"),
@@ -82,7 +79,6 @@ public class KichCo implements Serializable {
         this.ghiChuKC = ghiChuKC;
     }
 
-    @XmlTransient
     public List<CTTrangSuc> getCTTrangSucList() {
         return cTTrangSucList;
     }

@@ -5,7 +5,9 @@
  */
 package controller;
 
+import dao.LoaiTSDao;
 import dao.TrangSucDao;
+import dto.LoaiTS;
 import dto.TrangSuc;
 import java.io.IOException;
 import java.util.List;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SanPhamServlet extends HttpServlet {
 
     TrangSucDao daots= new TrangSucDao();
+    LoaiTSDao daoloaits = new LoaiTSDao();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,6 +38,9 @@ public class SanPhamServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        request.setCharacterEncoding("UTF-8");
+       String maloaits = request.getParameter("maloaiTS");
+        List<LoaiTS> kq = daoloaits.getAll();
+        request.setAttribute("lstLoaiTS", kq);
        String mats = request.getParameter("mats");
        TrangSuc trangsuc= daots.find(Integer.parseInt(mats));
        if (trangsuc.getMaLoaiTS().getMaLoaiTS().toString().equals("1")) {

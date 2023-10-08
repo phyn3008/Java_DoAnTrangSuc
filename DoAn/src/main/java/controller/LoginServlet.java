@@ -49,16 +49,16 @@ public class LoginServlet extends HttpServlet {
                 if(u.getChucVu()==null){
                 // Gửi dữ liệu cho view (jsp)
                     String tb= "Đăng Nhập Thành Công";
-//                    HttpSession session = request.getSession();
-//                    session.setAttribute("tendn",tendangnhap);
-//                    Cookie cookie= new Cookie("tendn",tendangnhap);
-//                    response.addCookie(cookie);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("tendn",tendangnhap);
+                    Cookie cookie= new Cookie("tendn",tendangnhap);
+                    response.addCookie(cookie);
                     
                     request.setAttribute("thanhcong", tb);
                     request.getRequestDispatcher("homekh.jsp").forward(request, response);   
                     request.setAttribute("tendn",tendangnhap);
                     request.getRequestDispatcher("logout.jsp").forward(request, response);  
-                }else{
+                }else {
                     String tb= "Đăng Nhập Thành Công";
                     request.setAttribute("thanhcong", tb);
                     request.getRequestDispatcher("homenv.jsp").forward(request, response);

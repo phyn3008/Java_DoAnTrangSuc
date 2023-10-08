@@ -5,18 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>NHÂN VIÊN Ở ĐÂY NÈ</h1>
-    </body>
-    <script src="assets/js/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-        <script>
-            toastr["success"]("${thanhcong}")
-        </script>
-</html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="./nhanvien/Header.jsp" %>
+<%@include file="./nhanvien/nav.jsp" %>
+
+<h1>TRANG HOME NHÂN VIÊN NHA</h1>
+<%@include file="./nhanvien/footer.jsp" %>

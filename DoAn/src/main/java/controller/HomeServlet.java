@@ -37,10 +37,12 @@ public class HomeServlet extends HttpServlet {
         String maloaits = request.getParameter("maloaiTS");
         List<LoaiTS> kq = daoloaits.getAll();
         request.setAttribute("lstLoaiTS", kq);
+
         if (maloaits == null) {
-//        Lấy dữ liệu từ model
-//            List<TrangSuc> lsttrangsuc= daotrangsuc.layngaunhien(4);
-            request.getRequestDispatcher("homekh.jsp").forward(request, response);
+       // 4 sản phẩm theo ngay ra mat
+        List<TrangSuc> lsttop4tn= daotrangsuc.top4spngaygannhat();
+        request.setAttribute("lsttop4tn", lsttop4tn);
+        request.getRequestDispatcher("homekh.jsp").forward(request, response);
             
         } else if (maloaits.equals("1")) {
             List<TrangSuc> lsttrangsuc= daotrangsuc.getAllofMaLoaiTS(Integer.parseInt(maloaits));
