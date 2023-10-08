@@ -1,5 +1,6 @@
 dto\HinhAnh_.class
 controller\QuanLyServlet.class
+dao\LoaiUSDao.class
 dao\userDao.class
 dao\HinhAnhDao.class
 dao\KichCoDao.class
@@ -12,6 +13,7 @@ dto\CTTrangSuc.class
 controller\SanPhamServlet.class
 dao\TrangSucDao.class
 dto\TrangSuc.class
+controller\QLUSServlet.class
 dto\CTTrangSucPK.class
 dto\TrangSuc_.class
 controller\LoginServlet.class

@@ -7,8 +7,10 @@ package controller;
 
 import dao.LoaiTSDao;
 import dao.TrangSucDao;
+import dao.userDao;
 import dto.LoaiTS;
 import dto.TrangSuc;
+import dto.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -26,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 public class QuanLyServlet extends HttpServlet {
 
     TrangSucDao daots = new TrangSucDao();
+    userDao daous = new userDao();
     LoaiTSDao daolts = new LoaiTSDao();
 
     /**
@@ -42,12 +45,14 @@ public class QuanLyServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String trang = request.getParameter("trang");
         List<TrangSuc> lstTrangSuc = daots.getAll();
+        List<Users> lstUs = daous.getAll();
         if (trang == null) {
             request.getRequestDispatcher("homenv.jsp").forward(request, response);
         } else if (trang.equals("TS")) {
                 request.setAttribute("lstTS", lstTrangSuc);
                 request.getRequestDispatcher("QLTrangSuc.jsp").forward(request, response);
         } else if (trang.equals("US")) {
+             request.setAttribute("lstUS", lstUs);
             request.getRequestDispatcher("QLUsers.jsp").forward(request, response);
         }
 

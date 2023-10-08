@@ -24,7 +24,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Tên Trang Sức</label>
-                <input class="form-control" type="text" name="tenTS"/>
+                <input class="form-control" type="text" name="tenTS" required="Vui lòng nhập tên"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Đơn Giá</label>

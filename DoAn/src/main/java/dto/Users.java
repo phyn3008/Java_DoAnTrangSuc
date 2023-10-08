@@ -124,6 +124,25 @@ public class Users implements Serializable {
         this.passWord = passWord;
     }
 
+    public Users(Integer maUser, String hoTenUser, Date ngaySinhUser, Boolean gioiTinhUser, String diaChiUser, long sDTUser, String emailUser, String tenDangNhap, String passWord, Date ngayBD, Integer heSoLuong, String chucVu, Long sTKUser, String ghiChuNV, Boolean isAdmin, LoaiUser maLoaiUser) {
+        this.maUser = maUser;
+        this.hoTenUser = hoTenUser;
+        this.ngaySinhUser = ngaySinhUser;
+        this.gioiTinhUser = gioiTinhUser;
+        this.diaChiUser = diaChiUser;
+        this.sDTUser = sDTUser;
+        this.emailUser = emailUser;
+        this.tenDangNhap = tenDangNhap;
+        this.passWord = passWord;
+        this.ngayBD = ngayBD;
+        this.heSoLuong = heSoLuong;
+        this.chucVu = chucVu;
+        this.sTKUser = sTKUser;
+        this.ghiChuNV = ghiChuNV;
+        this.isAdmin = isAdmin;
+        this.maLoaiUser = maLoaiUser;
+    }
+
     public Integer getMaUser() {
         return maUser;
     }

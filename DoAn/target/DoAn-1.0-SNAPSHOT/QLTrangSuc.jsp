@@ -75,6 +75,6 @@
         </table>
     </div>
 </div>
-</div><!-- /.container -->
+
 <%@include file="./nhanvien/footer.jsp" %>
 
