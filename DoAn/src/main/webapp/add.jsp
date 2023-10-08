@@ -68,7 +68,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Ngày Ra Mắt</label>
-                <input class="form-control" type="date" name="ngayRaMat"  />
+                <input class="form-control"  name="ngayRaMat" type="datetime" placeholder="dd/MM/yyyy"/>
             </div>
            <div class="mb-3">
               <label class="form-label">Giới Tính</label>

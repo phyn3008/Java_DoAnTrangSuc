@@ -12,7 +12,6 @@ import dto.ChatLieu;
 import dto.LoaiTS;
 import dto.TrangSuc;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,7 +23,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -146,15 +144,15 @@ public class QLTSServlet extends HttpServlet {
             request.getRequestDispatcher("QLTrangSuc.jsp").forward(request, response); 
         }else if(action.equals("Search"))
         {
-            String timkiem=request.getParameter("search");
+            String timkiem=request.getParameter("txtsearch");
             if(timkiem==""){
                 List<TrangSuc> kq= daots.getAll();
-                request.setAttribute("lstTrangSuc", kq);
-                request.getRequestDispatcher("list.jsp").forward(request, response);
+                request.setAttribute("lstTS", kq);
+                request.getRequestDispatcher("QLTrangSuc.jsp").forward(request, response);
             }else{
                 List<TrangSuc> kq= daots.search(timkiem);
-                request.setAttribute("lstTrangSuc", kq);
-                request.getRequestDispatcher("list.jsp").forward(request, response); 
+                request.setAttribute("lstTS", kq);
+                request.getRequestDispatcher("QLTrangSuc.jsp").forward(request, response); 
                 }      
         }
     }

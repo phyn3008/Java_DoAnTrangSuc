@@ -16,13 +16,13 @@
 <div class="container mt-4" id="main-content">
     <div class="row">
         <div class="col-md-6">
-            <form action="QLTrangSuc.jsp" method="post">  
+            <form action="QLTSServlet?btAction=Search" method="post">  
                 <div class="row">
                     <div class="col-md-8"> 
                         <input class="form-control" type="search" name="txtsearch" placeholder="Search by name ..." />
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-primary" type="submit" name="btnsearch">
+                        <button class="btn btn-primary" type="submit" name="btAction" value="Search">
                             <i class="fa fa-search"></i> Tìm Kiếm
                         </button>
                     </div>
