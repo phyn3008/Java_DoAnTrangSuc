@@ -4,6 +4,8 @@
     Author     : Admin
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="dto.TrangSuc"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,20 +29,16 @@
                 <input class="form-control" type="text" name="hoTenUser"/>
             </div>
             <div class="mb-3">
-              <label class="form-label">Giới Tính</label>
-              <div style="width: 200px">
-                  <input class="form-check-input" type="radio" name="gioiTinhUser" checked="true" value="true" />Nam 
-                  <input class="form-check-input" type="radio" name="gioiTinhUser"   value="false"/>Nữ
-              </div>
-          </div>
-            <div class="mb-3">
                 <label class="form-label">Ngày Sinh</label>
                 <input class="form-control"  name="ngaySinhUser" type="datetime" placeholder="dd/MM/yyyy"/>
             </div>
             <div class="mb-3">
-                <label class="form-label">Địa Chỉ</label>
-                <input class="form-control" type="text" name="diaChiUser" value="NULL" />
-            </div>
+              <label class="form-label">Giới Tính</label>
+              <div style="width: 200px">
+                 <input class="form-check-input" type="radio" name="gioiTinhUser" />Nam
+                  <input class="form-check-input" type="radio" name="gioiTinhUser"/>Nữ
+              </div>
+          </div>
             <div class="mb-3">
                 <label class="form-label">Số Điện Thoại</label>
                 <input class="form-control" type="text" name="sDTUser" required="Vui lòng nhập số điện thoại"/>
@@ -56,32 +54,20 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input class="form-control" type="text" name="passWord"  required="Vui lòng nhập password"/>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Hệ số lương</label>
-                <input class="form-control" type="text" name="heSoLuong"  value="0" />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Chức Vụ</label>
-                <input class="form-control" type="text" name="chucVu"  value="NULL"/>
+                <input class="form-control" type="password" name="passWord"  required="Vui lòng nhập password"/>
             </div>
              <div class="mb-3">
-                <label class="form-label">Số Tài Khoản</label>
-                <input class="form-control" type="text" name="sTKUser" value="NULL" />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Ghi Chú</label>
-                <input class="form-control" type="text" name="ghiChuNV" value="Không" />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Admin</label>
-                <input class="form-check-input" type="checkbox" name="isAdmin" checked="true" />
+                <label class="form-label">Ngày Bắt Đầu</label>
+                <% java.util.Date date=new java.util.Date(); 
+                    DateFormat dateformate = new SimpleDateFormat("dd/MM/yyyy");
+                    String ngayBD= dateformate.format(date);
+                %>
+                <input class="form-control"  name="ngayBD" type="datetime" value="<%= ngayBD %>" placeholder="dd/MM/yyyy"/>
             </div>
             <div class="mb-3">
              <label class="form-label">Loại Users</label>
              <input class="form-control" type="text" name="maLoaiUser" value="Nhân Viên" disabled="true" />
-          </div>
+            </div>
             <div class="mb-3">
               <button type="submit" name="btAction" value="Save" class="btn btn-block btn-primary">
               <i class="fa fa-save"></i> Save

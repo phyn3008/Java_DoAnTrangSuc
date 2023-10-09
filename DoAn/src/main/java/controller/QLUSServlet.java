@@ -82,22 +82,15 @@ public class QLUSServlet extends HttpServlet {
             String ngaysinh=request.getParameter("ngaySinhUser");
             Date ns = new SimpleDateFormat("dd/MM/yyyy").parse(ngaysinh);
             boolean gioitinh=Boolean.parseBoolean("gioiTinhUser");
-            String diachi=request.getParameter("diaChiUser");
             long sdt=Long.parseLong(request.getParameter("sDTUser"));
             String email=request.getParameter("emailUser");
             String tenDangNhap=request.getParameter("tenDangNhap");
             String passWord=request.getParameter("passWord");
             String ngayBD=request.getParameter("ngayBD");
             Date ngaybd = new SimpleDateFormat("dd/MM/yyyy").parse(ngayBD);
-             int heSoLuong=Integer.parseInt(request.getParameter("heSoLuong"));
-              String chucVu=request.getParameter("chucVu");
-              long sTKUser=Long.parseLong(request.getParameter("sTKUser"));
-              String ghiChuNV=request.getParameter("ghiChuNV");
-              boolean isadmin=Boolean.parseBoolean("isAdmin");
-               int maLoaiUser= Integer.parseInt(request.getParameter("maLoaiUser"));
-            LoaiUser loai= new LoaiUser(maLoaiUser);
-           
-            Users us= new Users(maLoaiUser, hoten, ns, gioitinh, diachi, sdt, email, tenDangNhap, passWord, ngaybd, heSoLuong, chucVu, sTKUser, ghiChuNV, isadmin, loai);
+            LoaiUser loai= new LoaiUser(1);
+           Users us= new Users(0, hoten, ns,gioitinh, sdt, email, tenDangNhap, passWord,  ngaybd, loai);
+            
             daous.Insert(us);
             List<Users> kq= daous.getAll();
             // Gửi dữ liệu cho view (jsp)
@@ -119,8 +112,8 @@ public class QLUSServlet extends HttpServlet {
             String passWord=request.getParameter("passWord");
             String ngayBD=request.getParameter("ngayBD");
             Date ngaybd = new SimpleDateFormat("dd/MM/yyyy").parse(ngayBD);
-             int heSoLuong=Integer.parseInt(request.getParameter("heSoLuong"));
-              String chucVu=request.getParameter("chucVu");
+            int heSoLuong=Integer.parseInt(request.getParameter("heSoLuong"));
+            String chucVu=request.getParameter("chucVu");
               long sTKUser=Long.parseLong(request.getParameter("sTKUser"));
               String ghiChuNV=request.getParameter("ghiChuNV");
               boolean isadmin=Boolean.parseBoolean("isAdmin");

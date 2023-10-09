@@ -52,23 +52,27 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input class="form-control" type="text" name="passWord" value="${us.passWord}"  required="Vui lòng nhập password"/>
+                <input class="form-control" type="password" name="passWord" value="${us.passWord}"  required="Vui lòng nhập password"/>
+            </div>
+             <div class="mb-3">
+                <label class="form-label">Ngày Bắt Đầu</label>
+                <input class="form-control"  name="ngayBD" type="datetime" value="${us.ngayBD}}" placeholder="dd/MM/yyyy"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Hệ số lương</label>
-                <input class="form-control" type="text" name="heSoLuong" value="${us.heSoLuong}"  value="0" />
+                <input class="form-control" type="text" name="heSoLuong" value="${us.heSoLuong==NULL?0:us.heSoLuong}" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Chức Vụ</label>
-                <input class="form-control" type="text" name="chucVu"  value="${us.chucVu==NULL?NULL:us.chucVu}" value="NULL"/>
+                <input class="form-control" type="text" name="chucVu"  value="${us.chucVu==NULL?NULL:us.chucVu}"/>
             </div>
              <div class="mb-3">
                 <label class="form-label">Số Tài Khoản</label>
-                <input class="form-control" type="text" name="sTKUser" value="${us.sTKUser==NULL?NULL:us.sTKUser}" value="NULL" />
+                <input class="form-control" type="text" name="sTKUser" value="${us.sTKUser==NULL?NULL:us.sTKUser}"  />
             </div>
             <div class="mb-3">
                 <label class="form-label">Ghi Chú</label>
-                <input class="form-control" type="text" name="ghiChuNV" value="${us.ghiChuNV==NULL?NULL:us.ghiChuNV}" value="Không" />
+                <input class="form-control" type="text" name="ghiChuNV" value="${us.ghiChuNV==NULL?"Không":us.ghiChuNV}" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Admin</label>
