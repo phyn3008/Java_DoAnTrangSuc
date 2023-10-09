@@ -96,11 +96,9 @@ public class QLUSServlet extends HttpServlet {
             // Gửi dữ liệu cho view (jsp)
              request.setAttribute("lstUS", kq);
             request.getRequestDispatcher("QLUsers.jsp").forward(request, response); 
-            
-            
-            
         }else if(action.equals("Update"))
         {
+            int maUser=Integer.parseInt(request.getParameter("maUser"));
             String hoten=request.getParameter("hoTenUser");
             String ngaysinh=request.getParameter("ngaySinhUser");
             Date ns = new SimpleDateFormat("dd/MM/yyyy").parse(ngaysinh);
@@ -112,7 +110,7 @@ public class QLUSServlet extends HttpServlet {
             String passWord=request.getParameter("passWord");
             String ngayBD=request.getParameter("ngayBD");
             Date ngaybd = new SimpleDateFormat("dd/MM/yyyy").parse(ngayBD);
-            int heSoLuong=Integer.parseInt(request.getParameter("heSoLuong"));
+            int hesoluong=Integer.parseInt(request.getParameter("heSoLuong"));
             String chucVu=request.getParameter("chucVu");
               long sTKUser=Long.parseLong(request.getParameter("sTKUser"));
               String ghiChuNV=request.getParameter("ghiChuNV");
@@ -120,7 +118,7 @@ public class QLUSServlet extends HttpServlet {
                int maLoaiUser= Integer.parseInt(request.getParameter("maLoaiUser"));
             LoaiUser loai= new LoaiUser(maLoaiUser);
            
-            Users us= new Users(maLoaiUser, hoten, ns, gioitinh, diachi, sdt, email, tenDangNhap, passWord, ngaybd, heSoLuong, chucVu, sTKUser, ghiChuNV, isadmin, loai);
+            Users us= new Users(maUser, hoten, ns, gioitinh, diachi, sdt, email, tenDangNhap, passWord, ngaybd, hesoluong, chucVu, sTKUser, ghiChuNV, isadmin, loai);
             daous.Update(us);
             List<Users> kq= daous.getAll();
             // Gửi dữ liệu cho view (jsp)

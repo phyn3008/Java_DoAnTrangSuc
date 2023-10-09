@@ -4,6 +4,8 @@
     Author     : Admin
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,9 +17,9 @@
 
 <div class="container mt-4" id="main-content">
       <div class="row justify-content-center">
-          <form action="QLTSServlet?btAction=Update" style="min-width: 300px;" method="post" >
+          <form action="QLUSServlet?btAction=Update" style="min-width: 300px;" method="post" >
           <h5 class="text-center">Edit Users</h5>
-          <input type="hidden" name="maUS" value="${us.maUS}"/>
+          <input type="hidden" name="maUser" value="${us.maUser}"/>
             <div class="mb-3">
                 <label class="form-label">Họ Tên</label>
                 <input class="form-control" type="text" name="hoTenUser" value="${us.hoTenUser}"/>
@@ -31,15 +33,16 @@
           </div>
             <div class="mb-3">
                 <label class="form-label">Ngày Sinh</label>
-                <input class="form-control"  name="ngaySinhUser" type="datetime" value="${us.ngaySinhUser}" placeholder="dd/MM/yyyy"/>
+                <f:formatDate var="ngay" value="${us.ngaySinhUser}" pattern="dd/MM/yyyy" />
+                <input class="form-control"  name="ngaySinhUser" type="datetime" value="${ngay}" placeholder="dd/MM/yyyy"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Địa Chỉ</label>
-                <input class="form-control" type="text" name="diaChiUser" value="value="${us.diaChiUser==NULL?NULL:us.diaChiUser}" />
+                <input class="form-control" type="text" name="diaChiUser" value="${us.diaChiUser==NULL?NULL:us.diaChiUser}" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Số Điện Thoại</label>
-                <input class="form-control" type="text" name="sDTUser" value="${us.sDTUser}" required="Vui lòng nhập số điện thoại"/>
+                <input class="form-control" type="text" name="sDTUser" value="${us.getSDTUser()}" required="Vui lòng nhập số điện thoại"/>
             </div>
             
             <div class="mb-3">
@@ -52,15 +55,15 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input class="form-control" type="password" name="passWord" value="${us.passWord}"  required="Vui lòng nhập password"/>
+                <input class="form-control" type="password" name="passWord" value="${us.getPassWord()}"  required="Vui lòng nhập password"/>
             </div>
              <div class="mb-3">
                 <label class="form-label">Ngày Bắt Đầu</label>
-                <input class="form-control"  name="ngayBD" type="datetime" value="${us.ngayBD}}" placeholder="dd/MM/yyyy"/>
+                <input class="form-control"  name="ngayBD" type="datetime" value="${us.ngayBD}" placeholder="dd/MM/yyyy"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Hệ số lương</label>
-                <input class="form-control" type="text" name="heSoLuong" value="${us.heSoLuong==NULL?0:us.heSoLuong}" />
+                <input class="form-control" type="text" name="heSoLuong" value="${us.getHeSoLuong()==NULL?0:us.getHeSoLuong()}" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Chức Vụ</label>
@@ -68,19 +71,19 @@
             </div>
              <div class="mb-3">
                 <label class="form-label">Số Tài Khoản</label>
-                <input class="form-control" type="text" name="sTKUser" value="${us.sTKUser==NULL?NULL:us.sTKUser}"  />
+                <input class="form-control" type="text" name="sTKUser" value="${us.getSTKUser()==NULL?NULL:us.getSTKUser()}"  />
             </div>
             <div class="mb-3">
                 <label class="form-label">Ghi Chú</label>
-                <input class="form-control" type="text" name="ghiChuNV" value="${us.ghiChuNV==NULL?"Không":us.ghiChuNV}" />
+                <input class="form-control" type="text" name="ghiChuNV" value="${us.ghiChuNV}" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Admin</label>
-                <input class="form-check-input" type="checkbox" name="isAdmin" value="true" checked="true" />
+                <input class="form-check-input" type="checkbox" name="isAdmin" value="true" ${us.isAdmin?"checked":""} />
             </div>
             <div class="mb-3">
              <label class="form-label">Loại Users</label>
-             <input class="form-control" type="text" name="maLoaiUser" value="Nhân Viên" disabled="true" />
+             <input class="form-control" type="text" name="maLoaiUser" value="${us.maLoaiUser.tenLoaiUser}" disabled="true" />
           </div>
             
            <div class="mt-4 mb-3">
